@@ -9,7 +9,7 @@ A simple blog management using FilamentPHP with Laravel 11.x by Maniruzzaman Aka
 1. Clone the repository:
 
     ```bash
-    git clone git@github.com:ManiruzzamanAkash/LaraFilament.git
+    git clone git@github.com:Rcode-RO7X/LaraFilament.git
     cd LaraFilament
     ```
 
