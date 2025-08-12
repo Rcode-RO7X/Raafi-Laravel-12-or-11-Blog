@@ -1,6 +1,6 @@
 ## LaraFilament
 
-A simple blog management using FilamentPHP with Laravel 11.x by Maniruzzaman Akash
+Blog Raafi Hafidz Ramadhan
 
 ----
 
