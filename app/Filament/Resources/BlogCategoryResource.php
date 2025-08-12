@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Cache;
 
 class BlogCategoryResource extends Resource
 {
@@ -53,7 +54,7 @@ class BlogCategoryResource extends Resource
                     ->label('Category Image')
                     ->image()
                     ->directory('category-images')
-                    ->maxSize(10240) // 10MB
+                    ->maxSize(40960) // 40MB
                     ->visibility('public'),
             ]);
     }
@@ -109,5 +110,29 @@ class BlogCategoryResource extends Resource
             'create' => Pages\CreateBlogCategory::route('/create'),
             'edit' => Pages\EditBlogCategory::route('/{record}/edit'),
         ];
+    }
+    
+    public static function afterCreate($record): void
+    {
+        Cache::forget('homepage_categories');
+        Cache::forget('all_categories');
+    }
+    
+    public static function afterSave($record): void
+    {
+        Cache::forget('homepage_categories');
+        Cache::forget('all_categories');
+    }
+    
+    public static function afterDelete($record): void
+    {
+        Cache::forget('homepage_categories');
+        Cache::forget('all_categories');
+    }
+    
+    public static function afterBulkDelete(): void
+    {
+        Cache::forget('homepage_categories');
+        Cache::forget('all_categories');
     }
 }

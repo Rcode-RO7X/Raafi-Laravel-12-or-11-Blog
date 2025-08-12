@@ -43,7 +43,7 @@ class UserResource extends Resource
                     ->label('Profile Picture')
                     ->image()
                     ->directory('avatars')
-                    ->maxSize(10240) // 10MB
+                    ->maxSize(40960) // 40MB
                     ->visibility('public'),
             ]);
     }

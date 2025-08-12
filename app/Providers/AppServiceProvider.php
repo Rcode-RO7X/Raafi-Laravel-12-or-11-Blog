@@ -21,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Increase file upload limits to 40MB
+        ini_set('upload_max_filesize', '40M');
+        ini_set('post_max_size', '40M');
+        
         Filament::serving(function () {
             Filament::registerNavigationGroups([
                 NavigationGroup::make()

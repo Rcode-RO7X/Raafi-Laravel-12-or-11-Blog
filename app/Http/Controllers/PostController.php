@@ -21,7 +21,7 @@ class PostController extends Controller
     public function show($slug)
     {
         $post = Cache::remember("post_{$slug}", 3600, function () use ($slug) {
-            return BlogPost::where('slug', $slug)->firstOrFail();
+            return BlogPost::where('slug', $slug)->with('comments.user')->firstOrFail();
         });
         return view('posts.show', compact('post'));
     }

@@ -39,7 +39,7 @@ class BlogPostResource extends Resource
                     ->label('Featured Image')
                     ->image()
                     ->directory('post-images')
-                    ->maxSize(10240) // 10MB
+                    ->maxSize(40960) // 40MB
                     ->visibility('public'),
                 Forms\Components\TextInput::make('views')
                     ->numeric()

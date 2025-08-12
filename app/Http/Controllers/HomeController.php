@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\BlogCategory;
 use App\Models\BlogPost;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $categories = Cache::remember('homepage_categories', 3600, function () {
-            return BlogCategory::take(6)->get();
+            return BlogCategory::whereNotNull('image')->latest()->take(6)->get();
         });
         
         $posts = Cache::remember('homepage_posts', 3600, function () {
