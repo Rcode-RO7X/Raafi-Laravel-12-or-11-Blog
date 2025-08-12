@@ -132,6 +132,3 @@ Blog Raafi Hafidz Ramadhan
 <b>Dashboard Page UI Mobile - Dark mode</b>
 ![Blog Management Page LaraFilament](screenshots/mobile-responsive-view-dark.png)
 
-
-## Contributions
-Any contribution is welcomed, please raise a PR. Any more talks, just ping me - manirujjamanakash@gmail.com
